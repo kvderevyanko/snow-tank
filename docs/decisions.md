@@ -47,3 +47,27 @@ is 147.75 mm.
   not the baseline.
 - E: `21T -> 93T m1.25; 18T -> 81T m1.5` is retained only as a study result,
   not the baseline.
+
+## D-002 — printed rotating-journal architecture C, study outcome
+
+**Status: conditional packaging direction; NOT strength approved.**
+
+The compound `80T + 18T` and output `81T + output journal` may be represented
+in first packaging CAD as monolithic nylon rotating parts with bearings seated
+in gearbox sidewalls. M3 is an axial safety/tie member through clearance bore;
+it is not a primary torque path and must not preload bearing inner rings.
+
+- Conditional preferred compound configuration: C2, two `bearing_22xTBDx6`
+  sidewall bearings and Ø10 journals **only if** bore is physically confirmed
+  as 10 mm / bearing marked 6900.
+- Confirmed fallback/configuration: C1, two 688-2RS sidewall bearings and Ø8
+  journals. It remains packaging-valid but has less nylon/root/fit margin.
+- Default output support: two nominal 6001 bearings, one near 81T and one near
+  the removable sprocket, maximally separated within the housing. No third
+  bearing without a demonstrated load-path advantage.
+- Provisional sprocket interface: printed HEX14, with HEX17 retained as a
+  parametric alternative. The final choice depends on the actual sprocket-core
+  diameter, engagement length and reversal/shock proof.
+
+These statements are geometry and assembly decisions only. Required physical
+fit, creep, fatigue and load validation remains open in D-002's study record.
