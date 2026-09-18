@@ -72,3 +72,36 @@ independent approval for that design.
 - Prefer simple reproducible calculations over opaque estimates.
 - Run tools/test.sh after relevant changes.
 - Do not commit unless the user explicitly requests a commit.
+
+## Git and GitHub workflow
+
+Remote repository: `https://github.com/kvderevyanko/snow-tank`
+
+Commits and pushes are permitted when they follow this workflow.
+
+1. Never push directly to `master` or `main` without a separate explicit user instruction.
+2. Create a separate working branch for each substantial stage, named
+   `codex/<short-task-name>` (for example, `codex/drivetrain-study`,
+   `codex/gearbox-v1`, or `codex/track-v1`).
+3. Before starting work, run `git status`, determine the current branch, check
+   `origin`, confirm that it addresses the repository above, and run
+   `git fetch origin`.
+4. Never overwrite another contributor's history. Without separate permission,
+   do not use `git push --force`, do not run `git reset --hard` on published
+   history, and do not modify `master` or `main` directly.
+5. Each commit must represent one logically complete engineering step.
+6. Before committing:
+   - run `tools/test.sh`;
+   - inspect `git diff`;
+   - confirm generated artifacts have not accidentally entered source control;
+   - confirm temporary or debug files are absent.
+7. Use short, technical commit messages, for example:
+   `drivetrain: compare 20:1 gearbox candidates`,
+   `cad: add parametric gearbox baseline`,
+   `cad: add HEX12 motor pinion interface`,
+   or `review: close gearbox assembly blockers`.
+8. After a successful commit, push the working branch to `origin` and report:
+   branch, commit SHA, concise contents, tests, known TBD values, and files
+   that changed substantially.
+9. Do not create a pull request unless the user explicitly requests one.
+10. Do not merge a working branch into `master` or `main` independently.
