@@ -1,0 +1,11 @@
+# Local environment and secret material. Commit only documented non-secret examples.
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+secrets/

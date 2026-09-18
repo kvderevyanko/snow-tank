@@ -72,6 +72,13 @@ independent approval for that design.
 - Prefer simple reproducible calculations over opaque estimates.
 - Run tools/test.sh after relevant changes.
 - Do not commit unless the user explicitly requests a commit.
+- Keep project skills, helper scripts, templates, calibration assets, and other
+  project-specific supporting files within this repository so the project can
+  be moved and remain usable. Do not depend on user- or machine-local paths
+  for project resources.
+- This repository is public: never commit keys, tokens, passwords, private
+  certificates, or other sensitive data. Add applicable secret-file patterns
+  to `.gitignore`; use documented non-secret examples or templates instead.
 
 ## Git and GitHub workflow
 
