@@ -71,7 +71,6 @@ independent approval for that design.
 - Physical assembly must be verified, not inferred from collision-free CAD.
 - Prefer simple reproducible calculations over opaque estimates.
 - Run tools/test.sh after relevant changes.
-- Do not commit unless the user explicitly requests a commit.
 - Keep project skills, helper scripts, templates, calibration assets, and other
   project-specific supporting files within this repository so the project can
   be moved and remain usable. Do not depend on user- or machine-local paths
@@ -84,7 +83,8 @@ independent approval for that design.
 
 Remote repository: `https://github.com/kvderevyanko/snow-tank`
 
-Commits and pushes are permitted when they follow this workflow.
+Commits are permitted. Pushes are permitted only to `codex/*` working branches
+when they follow this workflow.
 
 1. Never push directly to `master` or `main` without a separate explicit user instruction.
 2. Create a separate working branch for each substantial stage, named

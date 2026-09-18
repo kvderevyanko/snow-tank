@@ -8,10 +8,11 @@ import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
 from gearbox_geometry import (  # noqa: E402
-    HEX12_CIRCUMSCRIBED_DIAMETER_MM,
+    HEX_ACROSS_FLATS_MM,
     PRESSURE_ANGLE_DEG,
     STAGE_1,
     STAGE_2,
+    hex_circumscribed_diameter_mm,
     hex_radial_root_wall_mm,
     total_ratio,
 )
@@ -43,11 +44,14 @@ class GearboxBaselineTests(unittest.TestCase):
 
     def test_layout_and_hex_wall(self) -> None:
         self.assertEqual(PRESSURE_ANGLE_DEG, 20.0)
-        self.assertEqual(HEX12_CIRCUMSCRIBED_DIAMETER_MM, 13.856)
+        self.assertEqual(HEX_ACROSS_FLATS_MM, 12.0)
+        self.assertAlmostEqual(hex_circumscribed_diameter_mm(), 13.8564064606)
         self.assertEqual(
             STAGE_1.center_distance_mm + STAGE_2.center_distance_mm, 147.75
         )
-        self.assertAlmostEqual(hex_radial_root_wall_mm(STAGE_1.pinion), 4.697)
+        self.assertAlmostEqual(
+            hex_radial_root_wall_mm(STAGE_1.pinion), 4.6967967697
+        )
         self.assertGreaterEqual(hex_radial_root_wall_mm(STAGE_1.pinion), 3.5)
 
 

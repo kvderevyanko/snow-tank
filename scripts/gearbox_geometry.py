@@ -3,9 +3,10 @@
 
 from dataclasses import dataclass
 from fractions import Fraction
+from math import cos, radians
 
 PRESSURE_ANGLE_DEG = 20.0
-HEX12_CIRCUMSCRIBED_DIAMETER_MM = 13.856
+HEX_ACROSS_FLATS_MM = 12.0
 MODULE_MM = 1.5
 
 
@@ -51,8 +52,13 @@ def total_ratio() -> Fraction:
     return STAGE_1.ratio * STAGE_2.ratio
 
 
+def hex_circumscribed_diameter_mm() -> float:
+    """Return a regular HEX12 corner-to-corner diameter from its across-flats size."""
+    return HEX_ACROSS_FLATS_MM / cos(radians(30.0))
+
+
 def hex_radial_root_wall_mm(pinion: Gear) -> float:
-    return (pinion.root_diameter_mm - HEX12_CIRCUMSCRIBED_DIAMETER_MM) / 2
+    return (pinion.root_diameter_mm - hex_circumscribed_diameter_mm()) / 2
 
 
 def main() -> None:
